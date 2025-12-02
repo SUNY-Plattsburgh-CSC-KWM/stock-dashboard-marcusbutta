@@ -23,6 +23,9 @@
 //
 
 //const { createServer } = require('node:http');
+import {createRequire} from "node:module";
+const require = createRequire(import.meta.url);
+
 const config = require('./stockServerConfigV3.json');
 
 function getRand(varRange, upOnly) {
@@ -34,7 +37,7 @@ function getRand(varRange, upOnly) {
 }
 
 function getStock(items, ticker) {
-    for (i = 0; i < items.length && items[i].ticker != ticker; i++) {
+    for (let i = 0; i < items.length && items[i].ticker != ticker; i++) {
 	console.log(items[i].ticker);
     }
     return items[i];
@@ -96,8 +99,10 @@ function buildReturn() {
     return JSON.stringify(returnVal);
 }
 
-const express = require('express');
-const cors = require('cors');
+//const express = require('express');
+//const cors = require('cors');
+import express from "npm:express";
+import cors from "npm:cors";
 const app = express();
 app.use(cors());
 
