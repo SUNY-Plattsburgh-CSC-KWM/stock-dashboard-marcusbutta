@@ -1,0 +1,13 @@
+th,td {
+    text-align: center;
+    padding: 0.25em;
+    border: 1px solid black;
+}
+
+table {
+    border: 1px solid black;
+}
+
+.graph {
+    padding: 0;
+}
